@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Contact - JP 3D Printing Solutions</title><link rel="stylesheet" href="css/style.css"/></head><body>
+<header class="navbar"><div class="container nav-container"><div class="logo">JP 3D Printing Solutions</div><nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="contact.html" class="active">Contact</a></nav></div></header>
+<section class="hero"><div class="container"><h2>Contact & Checkout</h2><p>Fill the form to send an inquiry or complete your order. If you came from the cart, your cart summary will appear below.</p></div></section>
+<section class="features"><div class="container">
+  <div class="grid">
+    <div class="card form-box">
+      <h3>Customer / Checkout Form</h3>
+      <form id="checkout-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label class="label">Full name</label>
+        <input type="text" name="name" required>
+        <label class="label">Email</label>
+        <input type="email" name="_replyto" required>
+        <label class="label">Phone</label>
+        <input type="tel" name="phone" required>
+        <label class="label">Delivery address</label>
+        <textarea name="address" rows="3" required></textarea>
+        <label class="label">Additional message / instructions</label>
+        <textarea name="message" rows="4"></textarea>
+        <!-- Hidden field to store cart items -->
+        <input type="hidden" name="cart_summary" id="cart_summary_input">
+        <div style="margin-top:12px"><button type="submit" class="btn">Send Order / Inquiry</button></div>
+      </form>
+    </div>
+    <div class="card">
+      <h3>Your Cart</h3>
+      <div id="checkout-cart-area">Cart is empty</div>
+    </div>
+  </div>
+</div></section>
+<footer><div class="container">© 2025 JP 3D Printing Solutions — Gujarat, India</div></footer>
+<script src="js/cart.js"></script>
+<script>
+// Pre-fill checkout cart area if coming from cart
+document.addEventListener('DOMContentLoaded', ()=>{
+  const area = document.getElementById('checkout-cart-area');
+  const input = document.getElementById('cart_summary_input');
+  const from_session = sessionStorage.getItem('checkout_cart');
+  const cart = from_session ? JSON.parse(from_session) : (localStorage.getItem('jp3d_cart_v1') ? JSON.parse(localStorage.getItem('jp3d_cart_v1')) : []);
+  if(!cart || cart.length===0){ area.textContent='Cart is empty'; return; }
+  let html='';
+  let total=0;
+  cart.forEach((it,idx)=>{
+    html += `<div style="margin-bottom:10px"><strong>${it.name}</strong> — ₹${it.price} × ${it.qty}<div style="font-size:0.95em;color:#555">${it.instructions||''}</div></div>`;
+    total += it.price * it.qty;
+  });
+  html += `<div style="margin-top:8px"><strong>Total: ₹${total}</strong></div>`;
+  area.innerHTML = html;
+  input.value = cart.map(i=>({name:i.name,qty:i.qty,price:i.price,instructions:i.instructions}));
+});
+</script>
+</body></html>

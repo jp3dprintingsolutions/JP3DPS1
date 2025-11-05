@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Products - JP 3D Printing Solutions</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-container">
+      <div class="logo">JP 3D Printing Solutions</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Our Products</h2>
+      <p>Choose a product, add customization instructions, and add to cart. Your cart will persist while you browse.</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container grid">
+      <!-- Keychain -->
+      <div class="card" id="keychain">
+        <img src="images/keychain.jpg" alt="Personalized Keychain">
+        <h3>Personalized Keychain</h3>
+        <div class="price">₹150</div>
+        <p>Engrave a name or short text. Perfect as a gift.</p>
+        <form class="add-to-cart-form" data-id="keychain" data-name="Personalized Keychain" data-price="150" data-image="images/keychain.jpg">
+          <label class="label">Quantity</label>
+          <input type="number" name="qty" class="input-small" value="1" min="1">
+          <label class="label">Customization (instructions)</label>
+          <textarea name="instructions" placeholder="Write name, color, size, or other instructions..."></textarea>
+          <div style="margin-top:10px"><button class="btn" type="submit">Add to Cart</button></div>
+        </form>
+      </div>
+
+      <!-- Lamp -->
+      <div class="card" id="lamp">
+        <img src="images/lamp.jpg" alt="Custom Lamp">
+        <h3>Custom Lamp</h3>
+        <div class="price">₹900</div>
+        <p>Decorative lamp — choose pattern and size. We'll print and assemble.</p>
+        <form class="add-to-cart-form" data-id="lamp" data-name="Custom Lamp" data-price="900" data-image="images/lamp.jpg">
+          <label class="label">Quantity</label>
+          <input type="number" name="qty" class="input-small" value="1" min="1">
+          <label class="label">Customization (instructions)</label>
+          <textarea name="instructions" placeholder="Pattern, color, size, or special notes..."></textarea>
+          <div style="margin-top:10px"><button class="btn" type="submit">Add to Cart</button></div>
+        </form>
+      </div>
+
+      <!-- Bag Charm -->
+      <div class="card" id="bagcharm">
+        <img src="images/bagcharm.jpg" alt="Bag Charm">
+        <h3>Bag Charms</h3>
+        <div class="price">₹250</div>
+        <p>Durable charms for bags — personalize with initials or small designs.</p>
+        <form class="add-to-cart-form" data-id="bagcharm" data-name="Bag Charms" data-price="250" data-image="images/bagcharm.jpg">
+          <label class="label">Quantity</label>
+          <input type="number" name="qty" class="input-small" value="1" min="1">
+          <label class="label">Customization (instructions)</label>
+          <textarea name="instructions" placeholder="Initials, color, size, or other notes..."></textarea>
+          <div style="margin-top:10px"><button class="btn" type="submit">Add to Cart</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>© 2025 JP 3D Printing Solutions — Gujarat, India</div>
+      <div>📧 jpjp3dprintingsolutions@gmail.com • ☎️ 9409850169</div>
+    </div>
+  </footer>
+
+  <div id="cart-panel" class="cart-panel"></div>
+  <script src="js/cart.js"></script>
+</body>
+</html>
